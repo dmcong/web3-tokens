@@ -51,10 +51,14 @@ export class TokensService {
   }
 
   async getTokenInfo(dto: GetTokenDto) {
-    const tokens = await this.tokenModel.find({
-      platform: dto.platform,
-      address: dto.contract_address,
-    });
+    const cond: any = {
+      address: dto.address,
+    };
+    if (!!dto.platform) {
+      cond.platform = dto.platform;
+    }
+    const tokens = await this.tokenModel.find(cond);
+
     if (!tokens.length) throw new ForbiddenException('Not found token');
     if (tokens.length !== 1) throw new ForbiddenException(tokens);
 
@@ -72,6 +76,6 @@ export class TokensService {
       decimals: detail_platforms[token.platform].decimal_place,
       homepage,
     };
-    return metadata;
+    return { ...metadata, ...token };
   }
 }

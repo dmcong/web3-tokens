@@ -8,5 +8,5 @@ export class GetTokenDto {
 
   @IsString()
   @IsNotEmpty()
-  contract_address: string;
+  address: string;
 }
