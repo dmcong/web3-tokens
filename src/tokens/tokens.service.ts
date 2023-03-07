@@ -55,6 +55,7 @@ export class TokensService {
       platform: dto.platform,
       address: dto.contract_address,
     });
+    if (!tokens.length) throw new ForbiddenException('Not found token');
     if (tokens.length !== 1) throw new ForbiddenException(tokens);
 
     const token = tokens[0];
