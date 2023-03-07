@@ -7,8 +7,13 @@ import { TokensService } from './tokens.service';
 export class TokensController {
   constructor(private readonly tokensService: TokensService) {}
 
+  @Get('init')
+  initTokens() {
+    return this.tokensService.initTokens();
+  }
+
   @Get()
-  findAll(
+  getTokenInfo(
     @Query(
       new ValidationPipe({
         transform: true,
@@ -18,6 +23,6 @@ export class TokensController {
     )
     query: GetTokenDto,
   ) {
-    return this.tokensService.find(query);
+    return this.tokensService.getTokenInfo(query);
   }
 }

@@ -3,7 +3,7 @@ export enum API_ROUTES {
   SEARCH = '/search',
   SEARCH_TRENDING = '/search/trending',
   COIN = '/coins/{id}',
-  COIN_LIST = '/coins/list',
+  COIN_LIST = '/coins/list?include_platform=true',
   COIN_MARKET = '/coins/markets',
   COIN_TICKERS = '/coins/{id}/tickers',
   COIN_HISTORY = '/coins/{id}/history',

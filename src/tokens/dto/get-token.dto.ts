@@ -1,10 +1,10 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { PLATFORMS } from '../providers/coigecko/enum';
 
 export class GetTokenDto {
   @IsString()
-  @IsNotEmpty()
-  platform: PLATFORMS;
+  @IsOptional()
+  platform?: PLATFORMS;
 
   @IsString()
   @IsNotEmpty()

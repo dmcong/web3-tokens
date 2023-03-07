@@ -32,7 +32,8 @@ export class Coigecko {
     params: { [key: string]: any } = {},
   ): Promise<T> {
     const url = Coigecko.API_V3_URL + this.withPathParams(action, params);
-    return this.httpService.axiosRef.get<T>(url) as T;
+    const { data } = await this.httpService.axiosRef.get<T>(url);
+    return data;
   }
 
   /**

@@ -278,6 +278,9 @@ export interface CoinFullInfo {
   name?: string;
   asset_platform_id?: null;
   platforms?: PLATFORMS;
+  detail_platforms?: {
+    [x: string]: { decimal_place: number | null; contract_address: string };
+  };
   block_time_in_minutes?: number;
   hashing_algorithm?: string;
   categories?: string[];
