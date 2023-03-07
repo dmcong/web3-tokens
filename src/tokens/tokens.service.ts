@@ -76,6 +76,6 @@ export class TokensService {
       decimals: detail_platforms[token.platform].decimal_place,
       homepage,
     };
-    return { ...metadata, ...token };
+    return { ...metadata, ...token.toObject() };
   }
 }
